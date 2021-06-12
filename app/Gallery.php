@@ -22,21 +22,22 @@ class Gallery {
         $this->images = $this->indexAll();
     }
 
-    public function getRandomImage($width = false, $height = false, $seed = false) {
+    public function getRandomImage($size = false, $seed = false) {
         if ($seed) {
             srand($seed);
         }
 
-        $width = $width ? $width : config('galleries.default_image_size');
-        $height = $height ? $height : config('galleries.default_image_size');
-        $aspectRatio = getAspectRatio($width, $height);
+        $size = $size ? $size : config('galleries.default_image_size');
+        $dimensions = getDimensionsFromString($size);
+
+        $aspectRatio = getAspectRatio($dimensions->width, $dimensions->height);
         $imagePool = $this->getAllByAspectRatio($aspectRatio);
 
         $num = count($imagePool);
         $rand = rand(0, $num - 1);
         $image = $imagePool[$rand];
 
-        return $this->getImageByPath($image->path, "{$width}x{$height}");
+        return $this->getImageByPath($image->path, "{$size}");
     }
 
     public function getImageByPath($path, $size) {
