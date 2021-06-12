@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlaceholderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/random', [PlaceholderController::class, 'getRandom']);
+Route::get('/index', [PlaceholderController::class, 'getIndex']);
+Route::get('/hash/{hash}', [PLaceholderController::class, 'getByHash']);
+
+Route::get('/{size}', [PlaceholderController::class, 'getBySize']);
+Route::get('/{width}/{height}', [PlaceholderController::class, 'getByWidthHeight']);
