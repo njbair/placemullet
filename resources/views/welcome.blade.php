@@ -11,14 +11,16 @@
         <link href="/css/app.css" rel="stylesheet">
     </head>
     <body class="text-lg">
-        <header class="py-6 bg-gray-200">
+        <header class="py-6 bg-gradient-to-br from-yellow-200 via-green-400 to-blue-600">
             <div class="container mx-auto px-4">
-                <h1 class="py-6 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-center font-montserrat font-bold bg-gray-900 text-white uppercase">PlaceMullet.com</h1>
+                <h1 class="py-6 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-center font-montserrat font-bold bg-gray-800 text-white uppercase tracking-wider">
+                    PlaceMullet.com
+                </h1>
                 <p class="mt-6 mx-auto max-w-xs sm:max-w-full text-sm text-center font-montserrat font-bold uppercase tracking-widest">Serving mullets to the Internet since 2021</p>
             </div>
         </header>
 
-        <div class="container mt-8 mx-auto pt-4 pb-8 flex flex-col lg:flex-row lg:items-start">
+        <div class="container mt-8 mx-auto pt-4 pb-8 px-4 flex flex-col lg:flex-row lg:items-start">
             <main class="pt-4 font-raleway lg:w-2/3">
                 <h2 class="text-3xl md:text-4xl font-montserrat font-bold">
                     PlaceMullet.com: The Free Mullet Photo Placeholder Service You
@@ -96,13 +98,13 @@
             </aside>
         </div>
 
-        <footer class="py-6 bg-gray-200">
+        <footer class="py-6 bg-gradient-to-br to-yellow-200 via-green-400 from-blue-600">
             <div class="container mx-auto pt-12 pb-24 px-4">
                 <p class="text-sm text-center">
                     &copy {{ now()->year }} PlaceMullet.com
                     |
-                    Powered by
-                    <a class="hover:text-gray-600" href="https://bartoninteractive.com">Barton Interactive</a>
+                    Brought to you by the mullet appreciators at
+                    <a class="hover:text-gray-500" href="https://bartoninteractive.com">Barton Interactive</a>
                 </p>
             </div>
         </footer>
