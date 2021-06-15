@@ -67,6 +67,12 @@ class Gallery {
         }));
     }
 
+    public function refreshCache() {
+        Cache::forget($this->getCacheIndexKey('indexAll'));
+
+        return $this->indexAll();
+    }
+
     private function getAllFiles() {
         $galleryPath = config('galleries.path') . $this->gallery;
         $files = Storage::files($galleryPath);
@@ -79,8 +85,16 @@ class Gallery {
         }));
     }
 
+    private function getCacheIndexKey($suffix = '') {
+        if ($suffix !== '') {
+            return "gallery.{$this->gallery}.{$suffix}";
+        }
+
+        return "gallery.{$this->gallery}";
+    }
+
     private function indexAll() {
-        return Cache::remember("gallery.{$this->gallery}.indexAll", 38400, function() {
+        return Cache::remember($this->getCacheIndexKey('indexAll'), config('galleries.cache_time'), function() {
             $imageIndex = array();
 
             foreach ($this->files as $path) {
