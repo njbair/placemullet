@@ -49,6 +49,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::pattern('ext', config('placeholder.output_extensions_pattern'));
+        Route::pattern('size', '[\d]+(x[\d]+)?');
     }
 
     /**

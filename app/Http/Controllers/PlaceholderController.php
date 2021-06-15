@@ -9,14 +9,18 @@ class PlaceholderController extends Controller
 {
     private $gallery;
 
-    public function __construct() {
+    public function __construct(Request $request) {
         $this->gallery = new Gallery();
+
+        $seed = $request->query('seed');
+
+        $this->seed = $seed ? $seed : false;
     }
 
     public function getRandom($ext = 'jpg') {
         $ext = self::normalizeExtension($ext);
 
-        return $this->gallery->getRandomImage(false, $ext);
+        return $this->gallery->getRandomImage(false, $ext, $this->seed);
     }
 
     public function getBySize($size, $ext = 'jpg') {
@@ -28,7 +32,7 @@ class PlaceholderController extends Controller
             return $this->getRandom($ext);
         }
 
-        return $this->gallery->getRandomImage($size, $ext);
+        return $this->gallery->getRandomImage($size, $ext, $this->seed);
     }
 
     public function getByHash($hash) {

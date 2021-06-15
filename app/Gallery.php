@@ -24,7 +24,7 @@ class Gallery {
 
     public function getRandomImage($size = false, $format = 'jpg', $seed = false) {
         if ($seed) {
-            srand($seed);
+            srand(crc32($seed));
         }
 
         $size = $size ? $size : config('placeholder.default_image_size');
