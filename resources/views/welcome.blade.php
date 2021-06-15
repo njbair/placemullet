@@ -35,7 +35,7 @@
                     fly, like this example:
                 </p>
                 <p class="my-6">
-                    <img src="{{ url('/640x480') }}" />
+                    <img src="{{ url('/640x480.jpg?seed=11') }}" />
                 </p>
 
                 <h3 class="mt-8 mb-6 text-4xl font-montserrat">
@@ -69,7 +69,7 @@
                     …generates a 150 pixel square dummy image:
                 </p>
                 <p class="my-6">
-                    <img src="{{ url('/150') }}" />
+                    <img src="{{ url('/150?seed=4') }}" />
                 </p>
 
                 <h3 class="mt-8 mb-6 text-4xl font-montserrat">
