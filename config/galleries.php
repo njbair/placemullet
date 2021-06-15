@@ -17,8 +17,5 @@ return [
     // the app will search for files with these extensions. If you add new
     // values here, make sure they're compatible with the Intervention image
     // library.
-    'allowed_extensions' => ['jpg', 'jpeg', 'png', 'gif', 'webp'],
-
-    // when no image size is specified, use this value.
-    'default_image_size' => env('GALLERIES_DEFAULT_IMAGE_SIZE', 1024),
+    'indexed_extensions' => ['jpg', 'jpeg', 'png', 'gif', 'webp'],
 ];

@@ -22,12 +22,12 @@ class Gallery {
         $this->images = $this->indexAll();
     }
 
-    public function getRandomImage($size = false, $seed = false) {
+    public function getRandomImage($size = false, $format = 'jpg', $seed = false) {
         if ($seed) {
             srand($seed);
         }
 
-        $size = $size ? $size : config('galleries.default_image_size');
+        $size = $size ? $size : config('placeholder.default_image_size');
         $dimensions = getDimensionsFromString($size);
 
         $aspectRatio = getAspectRatio($dimensions->width, $dimensions->height);
@@ -37,10 +37,10 @@ class Gallery {
         $rand = rand(0, $num - 1);
         $image = $imagePool[$rand];
 
-        return $this->getImageByPath($image->path, "{$size}");
+        return $this->getImageByPath($image->path, $size, $format);
     }
 
-    public function getImageByPath($path, $size) {
+    public function getImageByPath($path, $size, $format) {
         $img = Image::make($path);
 
         if ($size !== 'original') {
@@ -48,7 +48,7 @@ class Gallery {
             $img->fit($dimensions->width, $dimensions->height);
         }
 
-        return $img->response();
+        return $img->response($format);
     }
 
     public function getOriginalImageByPath($path) {
@@ -78,10 +78,10 @@ class Gallery {
         $files = Storage::files($galleryPath);
 
         return array_values(array_filter($files, function($path) {
-            $allowed_extensions = config('galleries.allowed_extensions');
+            $indexed_extensions = config('galleries.indexed_extensions');
             $extension = pathinfo($path, PATHINFO_EXTENSION);
 
-            return in_array($extension, $allowed_extensions);
+            return in_array($extension, $indexed_extensions);
         }));
     }
 

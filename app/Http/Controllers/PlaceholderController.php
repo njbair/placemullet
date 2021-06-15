@@ -13,18 +13,22 @@ class PlaceholderController extends Controller
         $this->gallery = new Gallery();
     }
 
-    public function getRandom() {
-        return $this->gallery->getRandomImage();
+    public function getRandom($ext = 'jpg') {
+        $ext = self::normalizeExtension($ext);
+
+        return $this->gallery->getRandomImage(false, $ext);
     }
 
-    public function getBySize($size) {
+    public function getBySize($size, $ext = 'jpg') {
         $dimensions = getDimensionsFromString($size);
 
+        $ext = self::normalizeExtension($ext);
+
         if ( ! $dimensions) {
-            return $this->getRandom();
+            return $this->getRandom($ext);
         }
 
-        return $this->gallery->getRandomImage($size);
+        return $this->gallery->getRandomImage($size, $ext);
     }
 
     public function getByHash($hash) {
@@ -37,5 +41,15 @@ class PlaceholderController extends Controller
         $images = $this->gallery->getAll();
 
         return view('index', ['images' => $images]);
+    }
+
+    private static function normalizeExtension($ext) {
+        $ext = strtolower($ext);
+
+        if ($ext === 'jpeg') {
+            $ext = 'jpg';
+        }
+
+        return $ext;
     }
 }

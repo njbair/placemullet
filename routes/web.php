@@ -18,9 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/random.{ext}', [PlaceholderController::class, 'getRandom']);
 Route::get('/random', [PlaceholderController::class, 'getRandom']);
 Route::get('/index', [PlaceholderController::class, 'getIndex']);
 Route::get('/hash/{hash}', [PLaceholderController::class, 'getByHash']);
 
+Route::get('/{size}.{ext}', [PlaceholderController::class, 'getBySize']);
 Route::get('/{size}', [PlaceholderController::class, 'getBySize']);
-Route::get('/{width}/{height}', [PlaceholderController::class, 'getByWidthHeight']);
+//Route::get('/{width}/{height}', [PlaceholderController::class, 'getByWidthHeight']);
