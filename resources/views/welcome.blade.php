@@ -8,7 +8,7 @@
 
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
-        <link href="/css/app.css" rel="stylesheet">
+        <link href="/css/app.css?2021-06-16" rel="stylesheet">
     </head>
     <body class="text-lg">
         <div id="app">
