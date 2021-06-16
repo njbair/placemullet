@@ -178,5 +178,8 @@
             </footer>
         </div>
         <script src="{{ mix('/js/app.js') }}"></script>
+        @if (App::environment('production'))
+            @include('common.analytics')
+        @endif
     </body>
 </html>
