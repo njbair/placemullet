@@ -13,3 +13,47 @@ h1, h2, h3, h4 {
     font-weight: bold;
 }
 */
+
+h2 {
+    @apply text-3xl md:text-4xl font-montserrat font-bold;
+}
+
+h3 {
+    @apply mt-16 mb-6 text-4xl font-montserrat;
+}
+
+a {
+    @apply font-bold text-transparent bg-clip-text bg-gradient-to-br from-green-600 to-blue-700 hover:from-green-700 hover:to-blue-900 hover:underline;
+}
+
+main p {
+    @apply my-6;
+}
+
+aside h3 {
+    @apply mt-8 mb-6 text-base font-montserrat font-bold uppercase;
+}
+
+aside p {
+    @apply my-6;
+}
+
+aside ul {
+    @apply my-6 pl-4 list-disc;
+}
+
+aside li {
+    @apply mb-2;
+}
+
+.example {
+    @apply my-8 font-bold;
+}
+
+aside ul .example {
+    @apply mt-2;
+}
+
+.toc a {
+    @apply hover:underline;
+}

@@ -15,7 +15,7 @@ use App\Http\Controllers\PlaceholderController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['appName' => env('APP_NAME'), 'appUrl' => env('APP_URL')]);
 });
 
 Route::get('/random.{ext}', [PlaceholderController::class, 'getRandom']);
