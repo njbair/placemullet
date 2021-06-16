@@ -2,7 +2,7 @@
 
 return [
     // when no image size is specified, use this value.
-    'default_image_size' => env('PLACEHOLDER_DEFAULT_IMAGE_SIZE', 1024),
+    'default_image_size' => env('PLACEHOLDER_DEFAULT_IMAGE_SIZE', 320),
 
     // the app supports URI requests by file type. This pattern is used to
     // recognize those extensions. If you add new values here, make sure they're
