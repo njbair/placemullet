@@ -142,7 +142,7 @@
                         <a href="mailto:info@placemullet.com">info@placemullet.com</a>.
                     </p>
                 </main>
-                <aside class="font-raleway text-base lg:w-1/3 lg:border-l-2 lg:ml-8 lg:pl-8 lg:pt-6">
+                <aside class="font-raleway text-base lg:w-1/3 border-t-2 mt-8 pt-8 lg:border-t-0 lg:mt-0 lg:pt-6 lg:border-l-2 lg:ml-8 lg:pl-8">
                     <h3 class="mt-0">
                         Quick Start
                     </h3>
