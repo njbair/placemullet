@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome', ['appName' => env('APP_NAME'), 'appUrl' => env('APP_URL')]);
 });
 
+// Easter Egg!
+Route::get('/cass', [PlaceholderController::class, 'getCass']);
+
 Route::get('/random.{ext}', [PlaceholderController::class, 'getRandom']);
 Route::get('/random', [PlaceholderController::class, 'getRandom']);
 Route::get('/index', [PlaceholderController::class, 'getIndex']);

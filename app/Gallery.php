@@ -51,6 +51,13 @@ class Gallery {
         return $img->response($format);
     }
 
+    public function getCass() {
+        $path = Storage::path('cassandra-mullet-11-13-20.jpg');
+        $cass = Image::make($path);
+
+        return $cass->response();
+    }
+
     public function getOriginalImageByPath($path) {
         $img = Image::make($path);
 

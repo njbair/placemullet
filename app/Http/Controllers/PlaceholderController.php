@@ -47,6 +47,10 @@ class PlaceholderController extends Controller
         return view('index', ['images' => $images]);
     }
 
+    public function getCass() {
+        return $this->gallery->getCass();
+    }
+
     private static function normalizeExtension($ext) {
         $ext = strtolower($ext);
 
